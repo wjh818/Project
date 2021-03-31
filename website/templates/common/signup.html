@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends "testbase.html" %}
+{% block content %}
+<div class="container my-3" style = "padding: 200px">
+	<form method="post" class="loginForm" action="{% url 'common:signup' %}">
+		{% csrf_token %}
+		{% include "form_errors.html" %}
+		<h2>Login</h2>
+		<div class="idForm">
+			<input type="text" class="id" placeholder="ID" name="username" id="username"
+				   value="{{ form.username.value|default_if_none:'' }}">
+		</div>
+		<div class="passForm">
+			<input type="password" class="pw" placeholder="PW" name="password" id="password"
+				   value="{{ form.password.value|default_if_none:'' }}">
+		</div>
+        <div class="passcheckForm">
+			<input type="password" class="pw2" placeholder="PW Check" name="password2" id="password2"
+				   value="{{ form.password.value|default_if_none:'' }}">
+		</div>
+        <div class="emailForm">
+			<input type="text" class="email" placeholder="E-mail" name="email" id="email"
+				   value="{{ form.email.value|default_if_none:'' }}">
+		</div>
+		<button href="{% url 'mydiary:main' %}" type="submit" class="btn btn-primary" onclick="button()">
+			LOG IN
+		</button>
+		<div class="bottomText">
+			Don't you have ID? <a href="{% url 'common:signup' %}">sign up</a>
+		</div>
+	</form>
+</div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}

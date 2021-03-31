@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+
+{% extends 'testbase.html' %}
+{% load diary_filter %}
+{% load static %}
+
+{% block content %}
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+<style>
+      h1 {
+        font-family: 'Nanum Brush Script', cursive;
+      }
+
+#video {
+     position: absolute;
+     top: 0px;
+     left: 0px;
+     min-width: 100%;
+     min-height: 100%;
+     width: auto;
+     height: auto;
+     z-index: -1;
+}
+#con {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+}
+#header.alt {
+background-color: transparent;
+}
+</style>
+
+<div class="con">
+      <video id="video" preload="auto" autoplay="true"  muted="muted" volume="0">
+            <source src="{% static 'css/mainvideo.mp4' %}" type="video/mp4">
+
+      </video>
+
+</div>
+{% endblock %}
